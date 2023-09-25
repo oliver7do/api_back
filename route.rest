@@ -1,0 +1,32 @@
+###
+GET http://localhost/api_back
+
+###
+POST http://localhost/api_back/
+
+{
+    "pseudo": "Oliver",
+    "password": "passer",
+    "action": "login"
+}
+
+###
+POST http://localhost/api_back/
+
+{
+    "pseudo": "Oli",
+    "password": "passer",
+    "firstname": "Oli",
+    "lastname": "Riche",
+    "action": "register"
+}
+
+###
+POST http://localhost/api_back/
+
+{
+    "expeditor": "2",
+    "receiver": "14",
+    "message": "contenu du messages",
+    "action": "send message"
+}

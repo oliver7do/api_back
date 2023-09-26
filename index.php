@@ -1,13 +1,18 @@
 <?php
+header("Access-Control-Allow-Origin: *");
+// inclure functions.php
 require_once "functions.php";
-if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    $url = $_GET["REQUEST"]
-   
-} else {
-    // echo json_encode([
-    //     "test" => "ok"
-    // ]);
 
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    $url = $_SERVER["REQUEST_URI"];
+    $url = trim($url, "\/");
+    $url = explode("/", $url);
+    $action = $url[1];
+
+    if ($action == "getuserlist") {
+        getListUser();
+    }
+} else {
     // ce que l'utilisateur envvoi un formulaire on recupere
     $data = json_decode(file_get_contents("php://input"), true);
 
@@ -26,19 +31,4 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             "message"   => "service not found"
         ]);
     }
-
-//     echo json_encode([
-//         "status" => 200,
-//         "message" => "ok",
-//         "data" => $data
-//     ]);
-    
-//    // executer la requete permetant d'enregistrer les donnees 
-//     // connexion a la bd
-//     $db = new PDO("mysql:host=localhost;dbname=api_db", "root", "");
-
-//     // requete pour enregistrer un user
-//    $request = $db->prepare('INSERT INTO user (pseudo, password) VALUES (?, ?)');
-//     $request->execute(array($data['pseudo'], $data['password']));
-
 }

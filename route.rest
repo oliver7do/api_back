@@ -1,5 +1,5 @@
 ###
-GET http://localhost/api_back
+GET http://localhost/api_back/getuserlist/
 
 ###
 POST http://localhost/api_back/
@@ -14,7 +14,7 @@ POST http://localhost/api_back/
 POST http://localhost/api_back/
 
 {
-    "pseudo": "Oli",
+    "pseudo": "test",
     "password": "passer",
     "firstname": "Oli",
     "lastname": "Riche",

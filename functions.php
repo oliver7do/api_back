@@ -19,14 +19,14 @@ function register($firstName, $lastName, $pseudo, $password){
     $request = $db->prepare('INSERT INTO user (pseudo, password,firstname, lastname) VALUES (?, ?, ?, ?)');
     try{
         $request->execute(array($pseudo, $passwordCrypt, $firstName, $lastName));
-        return json_encode([
+        echo json_encode([
             "status" => 201,
             "message" => "everything",
         ]);
     }catch(PDOException $e){
-        return json_encode([
+        echo json_encode([
             "status" => 500,
-            "message" => "internal server error",
+            "message" => $e->getMessage()
         ]);
     }
 }

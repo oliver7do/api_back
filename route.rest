@@ -14,7 +14,7 @@ POST http://localhost/api_back/
 POST http://localhost/api_back/
 
 {
-    "pseudo": "test",
+    "pseudo": "Riche",
     "password": "passer",
     "firstname": "Oli",
     "lastname": "Riche",
@@ -25,8 +25,11 @@ POST http://localhost/api_back/
 POST http://localhost/api_back/
 
 {
-    "expeditor": "2",
-    "receiver": "14",
-    "message": "contenu du messages",
+    "expeditor": 14,
+    "receiver": "26",
+    "message": "riche",
     "action": "send message"
 }
+
+###
+GET http://localhost/api_back/getListMessage/2/14
